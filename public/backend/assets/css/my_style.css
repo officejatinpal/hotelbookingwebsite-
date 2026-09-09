@@ -1,0 +1,1181 @@
+
+
+        /* =========================================================
+           ROOT VARIABLES
+        ========================================================= */
+
+        :root {
+            --primary: #18B8A7;
+            --primary-dark: #0fa395;
+            --primary-light: #e6f9f7;
+
+            --secondary: #F4A261;
+            --secondary-dark: #e89240;
+
+            --white: #FFFFFF;
+
+            --bg-light: #F9FAFB;
+
+            --heading: #1F2937;
+            --text: #6B7280;
+            --text-light: #9CA3AF;
+
+            --border: #E5E7EB;
+
+            --shadow-sm:
+                0 1px 3px rgba(0, 0, 0, 0.06),
+                0 1px 2px rgba(0, 0, 0, 0.04);
+
+            --shadow:
+                0 4px 6px rgba(0, 0, 0, 0.05),
+                0 2px 4px rgba(0, 0, 0, 0.04);
+
+            --shadow-md:
+                0 10px 25px rgba(0, 0, 0, 0.08),
+                0 4px 10px rgba(0, 0, 0, 0.04);
+
+            --shadow-lg:
+                0 20px 50px rgba(0, 0, 0, 0.12),
+                0 8px 20px rgba(0, 0, 0, 0.06);
+
+            --shadow-xl:
+                0 30px 70px rgba(0, 0, 0, 0.15),
+                0 12px 30px rgba(0, 0, 0, 0.08);
+
+            --shadow-glow:
+                0 0 40px rgba(24, 184, 167, 0.20),
+                0 10px 30px rgba(24, 184, 167, 0.12);
+
+            --radius-sm: 10px;
+            --radius: 16px;
+            --radius-md: 20px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+
+            --transition:
+                0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            --transition-smooth:
+                0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+            --font-heading:
+                'Outfit', 'Poppins', sans-serif;
+
+            --font-body:
+                'Inter', sans-serif;
+        }
+
+
+        /* =========================================================
+           GLOBAL RESET
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+
+            font-family: var(--font-body);
+
+            color: var(--text);
+
+            background: var(--bg-light);
+        }
+
+
+        /* =========================================================
+           MAIN PAGE
+        ========================================================= */
+
+        .official-page {
+
+            position: relative;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 60px 20px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(230, 249, 247, 0.90),
+                    rgba(249, 250, 251, 0.96)
+                ),
+                url("<?= base_url('asset/img/dhi-member-bg.jpg') ?>")
+                center center / cover no-repeat;
+        }
+
+
+        /* Decorative top glow */
+
+        .official-page::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            top: -220px;
+            left: -150px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(24, 184, 167, 0.20);
+
+            filter: blur(10px);
+        }
+
+
+        /* Decorative bottom glow */
+
+        .official-page::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            right: -180px;
+            bottom: -250px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(244, 162, 97, 0.20);
+
+            filter: blur(20px);
+        }
+
+
+        /* =========================================================
+           MAIN CONTAINER
+        ========================================================= */
+
+        .official-container {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: 100%;
+
+            max-width: 1320px;
+
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+           TOP BRAND HEADER
+        ========================================================= */
+
+        .official-header {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+
+        .official-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 9px 17px;
+
+            border-radius: 50px;
+
+            background: rgba(255, 255, 255, 0.85);
+
+            border: 1px solid rgba(24, 184, 167, 0.20);
+
+            color: var(--primary-dark);
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+
+            box-shadow: var(--shadow-sm);
+
+            margin-bottom: 13px;
+        }
+
+
+        .official-badge i {
+
+            color: var(--primary);
+
+            font-size: 14px;
+        }
+
+
+        .official-title {
+
+            margin: 0;
+
+            font-family: var(--font-heading);
+
+            font-size: clamp(28px, 4vw, 44px);
+
+            line-height: 1.1;
+
+            font-weight: 800;
+
+            color: var(--heading);
+        }
+
+
+        .official-subtitle {
+
+            max-width: 620px;
+
+            margin: 12px auto 0;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
+            color: var(--text);
+        }
+
+
+        /* =========================================================
+           GRID
+        ========================================================= */
+
+        .official-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 24px;
+
+            align-items: stretch;
+        }
+
+
+        /* =========================================================
+           CARD
+        ========================================================= */
+
+        .official-card {
+
+            position: relative;
+
+            display: flex;
+
+            flex-direction: column;
+
+            min-height: 430px;
+
+            overflow: hidden;
+
+            border-radius: var(--radius-lg);
+
+            background:
+                rgba(255, 255, 255, 0.94);
+
+            border: 1px solid rgba(255, 255, 255, 0.90);
+
+            box-shadow: var(--shadow-xl);
+
+            backdrop-filter: blur(15px);
+
+            -webkit-backdrop-filter: blur(15px);
+
+            transition: var(--transition-smooth);
+        }
+
+
+        .official-card:hover {
+
+            transform: translateY(-7px);
+
+            box-shadow:
+                var(--shadow-xl),
+                0 15px 40px rgba(24, 184, 167, 0.10);
+        }
+
+
+        /* Top color line */
+
+        .official-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 5px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+        }
+
+
+        /* =========================================================
+           CARD HEADER
+        ========================================================= */
+
+        .official-card-header {
+
+            padding: 28px 26px 18px;
+
+            text-align: center;
+        }
+
+
+        .official-icon {
+
+            width: 60px;
+
+            height: 60px;
+
+            margin: 0 auto 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary-light),
+                    #ffffff
+                );
+
+            color: var(--primary);
+
+            border: 1px solid rgba(24, 184, 167, 0.15);
+
+            font-size: 24px;
+
+            box-shadow: var(--shadow-sm);
+
+            transition: var(--transition);
+        }
+
+
+        .official-card:hover .official-icon {
+
+            transform: translateY(-3px) rotate(3deg);
+
+            background:
+                var(--primary);
+
+            color: var(--white);
+
+            box-shadow:
+                0 8px 20px rgba(24, 184, 167, 0.22);
+        }
+
+
+        .official-card-title {
+
+            margin: 0;
+
+            font-family: var(--font-heading);
+
+            color: var(--heading);
+
+            font-size: 25px;
+
+            font-weight: 700;
+        }
+
+
+        .official-card-description {
+
+            margin: 8px 0 0;
+
+            color: var(--text);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           CARD BODY
+        ========================================================= */
+
+        .official-card-body {
+
+            flex: 1;
+
+            padding: 10px 26px 28px;
+        }
+
+
+        /* =========================================================
+           BIRTHDAY SECTION
+        ========================================================= */
+
+        .birthday-list {
+
+            list-style: none;
+
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .birthday-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding: 14px 15px;
+
+            margin-bottom: 10px;
+
+            border-radius: var(--radius-sm);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8fffe,
+                    var(--primary-light)
+                );
+
+            border: 1px solid rgba(24, 184, 167, 0.12);
+        }
+
+
+        .birthday-item-icon {
+
+            width: 40px;
+            height: 40px;
+
+            flex: 0 0 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: var(--primary);
+
+            color: white;
+
+            font-size: 16px;
+        }
+
+
+        .birthday-item strong {
+
+            display: block;
+
+            color: var(--heading);
+
+            font-size: 14px;
+
+            line-height: 1.4;
+        }
+
+
+        .birthday-item span {
+
+            display: block;
+
+            color: var(--primary-dark);
+
+            font-size: 12px;
+
+            margin-top: 2px;
+        }
+
+
+        .no-birthday {
+
+            padding: 28px 15px;
+
+            text-align: center;
+
+            border-radius: var(--radius);
+
+            background: var(--primary-light);
+
+            color: var(--primary-dark);
+
+            border: 1px dashed rgba(24, 184, 167, 0.30);
+        }
+
+
+        .no-birthday i {
+
+            display: block;
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+
+            color: var(--primary);
+        }
+
+
+        /* =========================================================
+           LOGIN FORM
+        ========================================================= */
+
+        .official-login-form {
+
+            width: 100%;
+        }
+
+
+        .form-group-modern {
+
+            margin-bottom: 18px;
+        }
+
+
+        .form-label-modern {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: var(--heading);
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .input-wrapper {
+
+            position: relative;
+        }
+
+
+        .input-wrapper > i {
+
+            position: absolute;
+
+            left: 15px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: var(--text-light);
+
+            font-size: 14px;
+
+            z-index: 2;
+
+            transition: var(--transition);
+        }
+
+
+        .modern-control {
+
+            width: 100%;
+
+            height: 48px;
+
+            padding:
+                0 15px 0 42px;
+
+            border-radius: var(--radius-sm);
+
+            border: 1px solid var(--border);
+
+            outline: none;
+
+            background: var(--white);
+
+            color: var(--heading);
+
+            font-family: var(--font-body);
+
+            font-size: 14px;
+
+            box-shadow: var(--shadow-sm);
+
+            transition: var(--transition);
+        }
+
+
+        .modern-control:focus {
+
+            border-color: var(--primary);
+
+            box-shadow:
+                0 0 0 4px rgba(24, 184, 167, 0.11);
+        }
+
+
+        .input-wrapper:focus-within > i {
+
+            color: var(--primary);
+        }
+
+
+        .modern-control::placeholder {
+
+            color: var(--text-light);
+        }
+
+
+        /* =========================================================
+           LOGIN SELECT
+        ========================================================= */
+
+        select.modern-control {
+
+            appearance: auto;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           LOGIN BUTTON
+        ========================================================= */
+
+        .official-login-btn {
+
+            width: 100%;
+
+            min-height: 50px;
+
+            border: none;
+
+            border-radius: var(--radius-sm);
+
+            padding: 12px 20px;
+
+            color: var(--white);
+
+            font-family: var(--font-body);
+
+            font-weight: 700;
+
+            font-size: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--primary-dark)
+                );
+
+            box-shadow:
+                0 10px 24px rgba(24, 184, 167, 0.22);
+
+            cursor: pointer;
+
+            transition: var(--transition);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .official-login-btn::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -110%;
+
+            width: 70%;
+            height: 100%;
+
+            transform: skewX(-20deg);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.25),
+                    transparent
+                );
+
+            transition: 0.65s ease;
+        }
+
+
+        .official-login-btn:hover {
+
+            transform: translateY(-2px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary-dark),
+                    var(--primary)
+                );
+
+            box-shadow:
+                0 13px 28px rgba(24, 184, 167, 0.30);
+        }
+
+
+        .official-login-btn:hover::before {
+
+            left: 135%;
+        }
+
+
+        /* =========================================================
+           CALENDAR
+        ========================================================= */
+
+        .calendar-list {
+
+            list-style: none;
+
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .calendar-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding: 12px;
+
+            margin-bottom: 9px;
+
+            background: #ffffff;
+
+            border-radius: var(--radius-sm);
+
+            border: 1px solid var(--border);
+
+            transition: var(--transition);
+        }
+
+
+        .calendar-item:hover {
+
+            transform: translateX(4px);
+
+            border-color:
+                rgba(24, 184, 167, 0.25);
+
+            box-shadow: var(--shadow-sm);
+        }
+
+
+        .calendar-date {
+
+            flex: 0 0 54px;
+
+            text-align: center;
+
+            padding: 8px 5px;
+
+            border-radius: 9px;
+
+            background:
+                var(--primary-light);
+
+            color: var(--primary-dark);
+
+            font-family: var(--font-heading);
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+
+        .calendar-event {
+
+            color: var(--heading);
+
+            font-size: 13px;
+
+            line-height: 1.4;
+
+            font-weight: 600;
+        }
+
+
+        /* Orange holiday date */
+
+        .calendar-item:nth-child(4) .calendar-date,
+        .calendar-item:nth-child(7) .calendar-date {
+
+            background:
+                rgba(244, 162, 97, 0.14);
+
+            color:
+                var(--secondary-dark);
+        }
+
+
+        /* =========================================================
+           ALERT
+        ========================================================= */
+
+        .official-alert {
+
+            position: fixed;
+
+            top: 20px;
+            right: 20px;
+
+            z-index: 9999;
+
+            max-width: 380px;
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow-lg);
+
+            border: none;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .official-footer {
+
+            position: relative;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1F2937,
+                    #111827
+                );
+
+            padding: 22px 20px;
+
+            text-align: center;
+
+            color: rgba(255,255,255,0.70);
+
+            font-size: 13px;
+        }
+
+
+        .official-footer strong {
+
+            color: var(--white);
+        }
+
+
+        .official-footer span {
+
+            color: var(--primary);
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 1100px) {
+
+            .official-grid {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+            }
+
+            .official-card:first-child {
+
+                grid-column:
+                    1 / -1;
+            }
+
+            .official-card:first-child .official-card-body {
+
+                max-width: 700px;
+
+                margin: 0 auto;
+
+                width: 100%;
+            }
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 767px) {
+
+            .official-page {
+
+                min-height: 100vh;
+
+                padding:
+                    35px 12px;
+
+                align-items:
+                    flex-start;
+
+                background-attachment: scroll;
+            }
+
+
+            .official-header {
+
+                margin-bottom: 25px;
+            }
+
+
+            .official-title {
+
+                font-size: 30px;
+            }
+
+
+            .official-subtitle {
+
+                font-size: 13px;
+
+                line-height: 1.6;
+
+                padding: 0 12px;
+            }
+
+
+            .official-badge {
+
+                font-size: 11px;
+
+                padding: 8px 13px;
+            }
+
+
+            .official-grid {
+
+                display: flex;
+
+                flex-direction: column;
+
+                gap: 18px;
+            }
+
+
+            .official-card:first-child {
+
+                grid-column: auto;
+            }
+
+
+            .official-card {
+
+                width: 100%;
+
+                min-height: auto;
+
+                border-radius: var(--radius-md);
+            }
+
+
+            .official-card-header {
+
+                padding:
+                    23px 18px 15px;
+            }
+
+
+            .official-card-body {
+
+                padding:
+                    8px 18px 22px;
+            }
+
+
+            .official-card-title {
+
+                font-size: 22px;
+            }
+
+
+            .official-icon {
+
+                width: 54px;
+                height: 54px;
+
+                border-radius: 15px;
+
+                font-size: 21px;
+            }
+
+
+            .modern-control {
+
+                height: 47px;
+
+                font-size: 14px;
+            }
+
+
+            .official-login-btn {
+
+                min-height: 48px;
+            }
+
+
+            .birthday-item {
+
+                padding: 12px;
+            }
+
+
+            .calendar-item {
+
+                padding: 11px;
+            }
+
+
+            .official-alert {
+
+                top: 10px;
+
+                left: 10px;
+
+                right: 10px;
+
+                max-width: none;
+            }
+        }
+
+
+        /* =========================================================
+           SMALL MOBILE
+        ========================================================= */
+
+        @media (max-width: 420px) {
+
+            .official-page {
+
+                padding: 25px 8px;
+            }
+
+
+            .official-title {
+
+                font-size: 26px;
+            }
+
+
+            .official-subtitle {
+
+                font-size: 12px;
+            }
+
+
+            .official-card-header {
+
+                padding:
+                    20px 15px 12px;
+            }
+
+
+            .official-card-body {
+
+                padding:
+                    7px 15px 18px;
+            }
+
+
+            .official-card-title {
+
+                font-size: 20px;
+            }
+
+
+            .official-card-description {
+
+                font-size: 12px;
+            }
+
+
+            .birthday-item {
+
+                gap: 10px;
+            }
+
+
+            .birthday-item-icon {
+
+                width: 36px;
+                height: 36px;
+
+                flex-basis: 36px;
+            }
+
+
+            .calendar-date {
+
+                flex-basis: 50px;
+            }
+        }
+
+    
+		
+   .main_container{
+
+        background: url('https://delviaholidaysinternational.com/backend/assets/images/homeBanner.jpg');
+    }
+		

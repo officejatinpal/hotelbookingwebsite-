@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Filters;
+
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Filters\FilterInterface;
+
+class AuthRole implements FilterInterface
+{
+    public function before(RequestInterface $request, $arguments = null)
+    {
+        $role = session()->get('role');
+
+        // Check if the user is authorized to access the route
+        if (!in_array($role, $arguments)) {
+            return redirect()->to('/official')->with('error', 'Unauthorized access');
+        }
+
+        return $request;
+    }
+
+    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
+    {
+        // Do nothing
+    }
+    
+    
+}
